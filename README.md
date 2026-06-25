@@ -306,7 +306,7 @@ CATEGORIA ──1:N──► PRODUTO ──1:N──► LOTES
 Cada **categoria** agrupa **produtos** (ex: "Carnes" → "Filé Mignon"). Cada **produto** pode ter múltiplos **lotes** com diferentes datas de validade.
 
 ---
-
+     
 ## ⚙️ Variáveis de Ambiente
 
 | Variável                     | Descrição            | Obrigatório |

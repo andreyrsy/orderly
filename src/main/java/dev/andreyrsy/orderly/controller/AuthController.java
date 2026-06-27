@@ -5,6 +5,7 @@ import dev.andreyrsy.orderly.dto.auth.AuthenticationDto;
 import dev.andreyrsy.orderly.dto.auth.LoginResponseDto;
 import dev.andreyrsy.orderly.dto.auth.RegisterDto;
 import dev.andreyrsy.orderly.model.user.User;
+import dev.andreyrsy.orderly.model.user.UserRole;
 import dev.andreyrsy.orderly.repository.UserRepository;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -49,7 +50,7 @@ public class AuthController {
         }
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
-        User newUser = new User(data.login(), encryptedPassword, data.role());
+        User newUser = new User(data.login(), encryptedPassword, UserRole.USER);
 
         this.userRepository.save(newUser);
 

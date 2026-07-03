@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: orderly
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_orderly
+    username: postgres
+    password: root
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+  jackson:
+    date-format: dd-MM-yyyy
+    time-zone: America/Sao_Paulo
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:JWTSECRET}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when_authorized
+logging:
+  pattern:
+    console: "%d{HH:mm} %-5level %F.%M:%L >>> %cyan(%msg%n)"
